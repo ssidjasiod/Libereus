@@ -1,0 +1,28 @@
+from ast import Await
+from email import message_from_binary_file
+from tkinter import COMMAND
+import discord
+from discord.ext import commands
+from setuptools import Command
+  
+bot = discord.Client()
+
+@bot.event
+async def on_ready():
+    print(">> Bot is online <<")
+    print('目前登入身份：',bot.user)
+    game = discord.Game('努力值勤中')
+    await bot.change_presence(status=discord.Status.online, activity=game)
+
+
+@bot.event
+async def on_message(message):
+    if message.content =='!晚安啾啾':
+        aws = await message.channel.send('問就是沒有')
+    if message.content =='!事故':
+        aws = await message.channel.send('每日事故（1/1）')
+    if message.content =='!歌回':
+        aws = await message.channel.send('下次一定')
+
+
+bot.run('OTgyNDQ3NzM4MTgyNTc4MjM3.GGJ0Fb.i9lbc5_18mOkDdhkpjccypdtw0zmkw97BJRKS0')
